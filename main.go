@@ -50,26 +50,30 @@ func getUserEndpoint(w http.ResponseWriter, req *http.Request) {
 	print("por aqui  paso")
 	//var usuario User = User{User_id: 1, Firstname: "Jairo", Lastname: "Suarez", Email: "andres4005@gmail.com", Reg_date: "1234", User_password: "admin", Credit_card: 1111, Token_id: 12345}
 	json.NewEncoder(w).Encode(req.Body)
-
 }
-
 func setUserEndpoint(w http.ResponseWriter, req *http.Request) {
 	print("paso por usuarios")
-	//var usuario User = User{User_id: 1, Firstname: "Jairo", Lastname: "Suarez", Email: "andres4005@gmail.com", Reg_date: "1234", User_password: "admin", Credit_card: 1111, Token_id: 12345}
-	//json.NewEncoder(w).Encode(usuario)
-
 }
 func updateUserEndpoint(w http.ResponseWriter, req *http.Request) {
 	print("paso por usuarios")
-	//var usuario User = User{User_id: 1, Firstname: "Jairo", Lastname: "Suarez", Email: "andres4005@gmail.com", Reg_date: "1234", User_password: "admin", Credit_card: 1111, Token_id: 12345}
-	//json.NewEncoder(w).Encode(usuario)
-
 }
 func deleteUserEndpoint(w http.ResponseWriter, req *http.Request) {
 	print("paso por usuarios")
-	//var usuario User = User{User_id: 1, Firstname: "Jairo", Lastname: "Suarez", Email: "andres4005@gmail.com", Reg_date: "1234", User_password: "admin", Credit_card: 1111, Token_id: 12345}
-	//json.NewEncoder(w).Encode(usuario)
+}
 
+func getloginEndpoint(w http.ResponseWriter, req *http.Request) {
+	print("por aqui  paso")
+	//var usuario User = User{User_id: 1, Firstname: "Jairo", Lastname: "Suarez", Email: "andres4005@gmail.com", Reg_date: "1234", User_password: "admin", Credit_card: 1111, Token_id: 12345}
+	json.NewEncoder(w).Encode(req.Body)
+}
+func setLoginEndpoint(w http.ResponseWriter, req *http.Request) {
+	print("paso por usuarios")
+}
+func updateLoginEndpoint(w http.ResponseWriter, req *http.Request) {
+	print("paso por usuarios")
+}
+func deleteLoginEndpoint(w http.ResponseWriter, req *http.Request) {
+	print("paso por usuarios")
 }
 
 func main() {
@@ -90,6 +94,11 @@ func main() {
 	router.HandleFunc("/user", getUserEndpoint).Methods("GET")
 	router.HandleFunc("/user", getUserEndpoint).Methods("PUT")
 	router.HandleFunc("/user", getUserEndpoint).Methods("DELETE")
+
+	router.HandleFunc("/login", getUserEndpoint).Methods("POST")
+	router.HandleFunc("/login", getUserEndpoint).Methods("GET")
+	router.HandleFunc("/login", getUserEndpoint).Methods("PUT")
+	router.HandleFunc("/login", getUserEndpoint).Methods("DELETE")
 
 	log.Fatal(http.ListenAndServe(":3000", router))
 
