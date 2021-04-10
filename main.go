@@ -47,7 +47,7 @@ type Login struct {
 //var users []User
 
 func getUserEndpoint(w http.ResponseWriter, req *http.Request) {
-	//print(req.Body)
+	print("por aqui  paso")
 	//var usuario User = User{User_id: 1, Firstname: "Jairo", Lastname: "Suarez", Email: "andres4005@gmail.com", Reg_date: "1234", User_password: "admin", Credit_card: 1111, Token_id: 12345}
 	json.NewEncoder(w).Encode(req.Body)
 
