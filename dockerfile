@@ -5,4 +5,6 @@ COPY . .
 
 RUN go get -d -v ./...
 RUN go install -v ./...
-CMD ["app"]
+EXPOSE 5678
+
+CMD ["go", "run", "main.go"]

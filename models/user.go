@@ -8,7 +8,7 @@ type User struct {
 	Lastname      string    `json:"lastname,omitempty"`
 	Email         string    `json:"email,omitempty"`
 	Reg_date      time.Time `json:"reg_date,omitempty"`
-	User_password string    `json:"user_password,omitempty"`
+	User_pasword  string    `json:"user_pasword,omitempty"`
 	Wallet_id     int       `json:"wallet_id,omitempty"`
-	Token_id      int       `json:"token_id,omitempty"`
+	Block_account bool      `json:"block_account,omitempty"`
 }

@@ -55,6 +55,7 @@ func SetUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	user.Reg_date = time.Now()
+	//TODO AUTOINCREMENT
 	err = db.Create(&user).Error
 	if err != nil {
 		fmt.Println(err)
