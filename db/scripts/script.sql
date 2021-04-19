@@ -2,7 +2,7 @@ CREATE DATABASE viwit;
 USE viwit;
 
 CREATE TABLE users (
-    user_id INT(12) PRIMARY KEY,
+    user_id INT(12) AUTO_INCREMENT PRIMARY KEY,
     firstname VARCHAR (30) NOT NULL,
     lastname VARCHAR (30) NOT NULL,
     email VARCHAR (50) NOT NULL,

@@ -17,6 +17,7 @@ func main() {
 	r := mux.NewRouter()
 
 	routes.SetUserRoutes(r)
+	routes.SetLoginRoutes(r)
 
 	srv := http.Server{
 

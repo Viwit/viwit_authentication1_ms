@@ -33,15 +33,10 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 
 func GetUsers(w http.ResponseWriter, r *http.Request) {
 
-	println("paso por users :D")
-
 	users := []models.User{}
 	db := utils.GetConnection()
-
 	db.Find(&users)
-
 	j, _ := json.Marshal(users)
-
 	utils.SendResponse(w, http.StatusOK, j)
 }
 
@@ -55,7 +50,6 @@ func SetUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	user.Reg_date = time.Now()
-	//TODO AUTOINCREMENT
 	err = db.Create(&user).Error
 	if err != nil {
 		fmt.Println(err)
@@ -92,17 +86,10 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 
 func DeleteUser(w http.ResponseWriter, r *http.Request) {
 	user := models.User{}
-
 	id := mux.Vars(r)["id"]
-
 	db := utils.GetConnection()
-
 	db.Find(&user, id)
-
 	if user.User_id > 0 {
-
-		//db.Delete(&user)
-
 		db.Where("user_id = ?", id).Delete(&user)
 
 		utils.SendResponse(w, http.StatusOK, []byte(`{}`))
