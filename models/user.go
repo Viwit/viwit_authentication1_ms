@@ -22,4 +22,5 @@ type User struct {
 	User_pasword  string `gorm:"not null"`
 	Wallet_id     int
 	Block_account bool
+	User_type     int `gorm:"not null"`
 }

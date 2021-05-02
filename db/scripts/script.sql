@@ -9,7 +9,8 @@ CREATE TABLE users (
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     user_pasword VARCHAR (128) NOT NULL,
     wallet_id INT(12),
-    block_account BOOL NOT NULL
+    block_account BOOL NOT NULL,
+    user_type INT(2)
 );
 
 CREATE TABLE tokens (
