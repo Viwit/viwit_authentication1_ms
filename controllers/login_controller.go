@@ -28,6 +28,7 @@ func GetLogin(w http.ResponseWriter, r *http.Request) {
 	} else {
 		utils.SendErr(w, http.StatusNotFound)
 	}
+	utils.CloseConnection(db)
 }
 
 func SetLogin(w http.ResponseWriter, r *http.Request) {
@@ -48,6 +49,7 @@ func SetLogin(w http.ResponseWriter, r *http.Request) {
 	}
 	j, _ := json.Marshal(login)
 	utils.SendResponse(w, http.StatusCreated, j)
+	utils.CloseConnection(db)
 }
 
 func Getlogins(w http.ResponseWriter, r *http.Request) {
@@ -57,4 +59,5 @@ func Getlogins(w http.ResponseWriter, r *http.Request) {
 	db.Find(&logins)
 	j, _ := json.Marshal(logins)
 	utils.SendResponse(w, http.StatusOK, j)
+	utils.CloseConnection(db)
 }

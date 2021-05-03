@@ -29,6 +29,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	} else {
 		utils.SendErr(w, http.StatusNotFound)
 	}
+	utils.CloseConnection(db)
 }
 
 func GetUsers(w http.ResponseWriter, r *http.Request) {
@@ -38,6 +39,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 	db.Find(&users)
 	j, _ := json.Marshal(users)
 	utils.SendResponse(w, http.StatusOK, j)
+	utils.CloseConnection(db)
 }
 
 func SetUser(w http.ResponseWriter, r *http.Request) {
@@ -58,6 +60,7 @@ func SetUser(w http.ResponseWriter, r *http.Request) {
 	}
 	j, _ := json.Marshal(user)
 	utils.SendResponse(w, http.StatusCreated, j)
+	utils.CloseConnection(db)
 }
 
 func UpdateUser(w http.ResponseWriter, r *http.Request) {
@@ -82,6 +85,7 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 	} else {
 		utils.SendErr(w, http.StatusNotFound)
 	}
+	utils.CloseConnection(db)
 }
 
 func DeleteUser(w http.ResponseWriter, r *http.Request) {
@@ -96,4 +100,5 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 	} else {
 		utils.SendErr(w, http.StatusNotFound)
 	}
+	utils.CloseConnection(db)
 }

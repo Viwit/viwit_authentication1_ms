@@ -15,3 +15,11 @@ func GetConnection() *gorm.DB {
 	}
 	return db
 }
+
+func CloseConnection(db *gorm.DB) {
+	sqlDB, err := db.DB()
+	if err != nil {
+		panic(err.Error())
+	}
+	sqlDB.Close()
+}
