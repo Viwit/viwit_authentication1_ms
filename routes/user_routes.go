@@ -14,4 +14,6 @@ func SetUserRoutes(r *mux.Router) {
 	subRouter.HandleFunc("/user", controllers.SetUser).Methods("POST")
 	subRouter.HandleFunc("/user/{id}", controllers.UpdateUser).Methods("PUT")
 	subRouter.HandleFunc("/user/{id}", controllers.DeleteUser).Methods("DELETE")
+
+	subRouter.HandleFunc("/userLogin/", controllers.UserLogin).Methods("GET")
 }

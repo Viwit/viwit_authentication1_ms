@@ -32,6 +32,28 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	utils.CloseConnection(db)
 }
 
+func UserLogin(w http.ResponseWriter, r *http.Request) {
+
+	user := models.User{}
+	userdb := models.User{}
+	db := utils.GetConnection()
+	err := json.NewDecoder(r.Body).Decode(&user)
+	if err != nil {
+		fmt.Println(err)
+		utils.SendErr(w, http.StatusBadRequest)
+		return
+	}
+	db.Where("email = ?", user.Email).Find(&userdb)
+	if (userdb.User_id > 0) && (user.User_pasword == userdb.User_pasword) {
+		j, _ := json.Marshal(userdb)
+		utils.SendResponse(w, http.StatusOK, j)
+	} else {
+		utils.SendErr(w, http.StatusNotFound)
+	}
+	utils.CloseConnection(db)
+
+}
+
 func GetUsers(w http.ResponseWriter, r *http.Request) {
 
 	users := []models.User{}
