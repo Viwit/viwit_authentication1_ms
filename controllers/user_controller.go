@@ -44,7 +44,7 @@ func UserLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	db.Where("email = ?", user.Email).Find(&userdb)
-	if (userdb.User_id > 0) && (user.User_pasword == userdb.User_pasword) {
+	if (userdb.User_id > 0) && (user.User_password == userdb.User_password) {
 		j, _ := json.Marshal(userdb)
 		utils.SendResponse(w, http.StatusOK, j)
 	} else {
