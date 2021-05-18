@@ -19,7 +19,7 @@ type User struct {
 	Lastname      string `gorm:"not null"`
 	Email         string `gorm:"not null"`
 	Reg_date      time.Time
-	User_pasword  string `gorm:"not null"`
+	User_password string `gorm:"not null"`
 	Wallet_id     int
 	Block_account bool
 	User_type     int `gorm:"not null"`

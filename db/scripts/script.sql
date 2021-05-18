@@ -10,7 +10,8 @@ CREATE TABLE users (
     user_pasword VARCHAR (128) NOT NULL,
     wallet_id INT(12),
     block_account BOOL NOT NULL,
-    user_type INT(2)
+    user_type INT(4),
+    UNIQUE (email)
 );
 
 CREATE TABLE tokens (
