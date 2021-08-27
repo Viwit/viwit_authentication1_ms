@@ -32,6 +32,12 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 	utils.CloseConnection(db)
 }
 
+func GetUserLdap(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Printf("\nESTO FUNCIONO\n")
+
+}
+
 func UserLogin(w http.ResponseWriter, r *http.Request) {
 
 	user := models.User{}
