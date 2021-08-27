@@ -46,6 +46,6 @@
           PHPLDAPADMIN_LDAP_HOSTS: "sa-ldap"
           PHPLDAPADMIN_HTTPS: "false"
         ports:
-          - "8000:80"
+          - "8085:80"
         links:
           - sa-ldap
