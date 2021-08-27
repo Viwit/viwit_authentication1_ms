@@ -33,7 +33,7 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetUserLdap(w http.ResponseWriter, r *http.Request) {
-
+	utils.SendResponse(w, http.StatusOK, []byte("true"))
 	fmt.Printf("\nESTO FUNCIONO\n")
 
 }
