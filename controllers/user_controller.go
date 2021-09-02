@@ -137,6 +137,8 @@ func SetUser(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Printf("user: %v\n", user.Firstname)
 
+	defer l.Close()
+
 }
 
 func UpdateUser(w http.ResponseWriter, r *http.Request) {
@@ -187,7 +189,6 @@ func connectServer() (l *ldap.Conn) {
 	} else {
 		fmt.Println("Connection with the server sucessfully!")
 	}
-
 	return l
 }
 
